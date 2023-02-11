@@ -1,58 +1,58 @@
 import os
 
-def encode_goobistani(english_text):
+def decode_goobistani(goobistani_text):
     mapping = {
-        "a": "ا",
-        "b": "В",
-        "c": "Д",
-        "d": "Ж",
-        "e": "ه",
-        "f": "ف",
-        "g": "и",
-        "h": "ح",
-        "i": "ي",
-        "j": "З",
-        "k": "ک",
-        "l": "Л",
-        "m": "م",
-        "n": "ن",
-        "o": "ء",
-        "p": "پ",
-        "q": "з",
-        "r": "ر",
-        "s": "س",
-        "t": "ت",
-        "u": "ع",
-        "v": "و",
-        "w": "و",
-        "x": "کس",
-        "y": "Ф",
-        "z": "ز",
+        "ا": "a",
+        "б": "b",
+        "ч": "c",
+        "д": "d",
+        "ع": "e",
+        "ف": "f",
+        "غ": "g",
+        "ه": "h",
+        "и": "i",
+        "й": "j",
+        "к": "k",
+        "л": "l",
+        "м": "m",
+        "н": "n",
+        "أ": "o",
+        "п": "p",
+        "ق": "q",
+        "р": "r",
+        "س": "s",
+        "т": "t",
+        "у": "u",
+        "в": "v",
+        "ш": "w",
+        "خ": "x",
+        "ы": "y",
+        "з": "z",
     }
-    goobistani_text = ""
-    for letter in english_text:
-        if letter.lower() in mapping:
-            goobistani_text += mapping[letter.lower()]
+    english_text = ""
+    for letter in goobistani_text:
+        if letter in mapping:
+            english_text += mapping[letter]
         else:
-            goobistani_text += letter
-    return goobistani_text
+            english_text += letter
+    return english_text
 
 def main():
     os.system('clear')
-    print("Goobistani Encoder\n")
+    print("Goobistani Decoder\n")
 
     while True:
         # Get input from user
-        english_text = input("Enter text in English: ")
+        goobistani_text = input("Enter text in Goobistani: ")
 
-        # Encode the input text
-        goobistani_text = encode_goobistani(english_text)
+        # Decode the input text
+        english_text = decode_goobistani(goobistani_text)
 
-        # Print the encoded text
-        print(f"Encoded text: {goobistani_text}\n")
+        # Print the decoded text
+        print(f"Decoded text: {english_text}\n")
 
-        # Ask if the user wants to encode more text
-        response = input("Do you want to encode more text? (Y/N) ")
+        # Ask if the user wants to decode more text
+        response = input("Do you want to decode more text? (Y/N) ")
         if response.lower() != "y":
             break
 
